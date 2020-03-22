@@ -2,7 +2,8 @@
 . path.sh
 
 
-#Nikhil Gupta
+# author :    VIKRANT DEY
+#         IIT ROORKEE, INDIA
 
 
 
