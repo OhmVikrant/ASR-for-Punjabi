@@ -1,0 +1,918 @@
+                                                  
+----------------------------------------------
+----------------------------------------------
+                                                  
+        Creating Language Model               
+                                                  
+----------------------------------------------
+----------------------------------------------
+                                                  
+============================================================================
+                   Creating  n-gram LM               	        
+============================================================================
+utils/prepare_lang.sh --num-sil-states 3 data/local/dict !SIL data/local/lang_bigram data/lang_bigram
+Checking data/local/dict/silence_phones.txt ...
+--> reading data/local/dict/silence_phones.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict/silence_phones.txt is OK
+
+Checking data/local/dict/optional_silence.txt ...
+--> reading data/local/dict/optional_silence.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict/optional_silence.txt is OK
+
+Checking data/local/dict/nonsilence_phones.txt ...
+--> reading data/local/dict/nonsilence_phones.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict/nonsilence_phones.txt is OK
+
+Checking disjoint: silence_phones.txt, nonsilence_phones.txt
+--> disjoint property is OK.
+
+Checking data/local/dict/lexicon.txt
+--> reading data/local/dict/lexicon.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict/lexicon.txt is OK
+
+Checking data/local/dict/extra_questions.txt ...
+--> data/local/dict/extra_questions.txt is empty (this is OK)
+--> SUCCESS [validating dictionary directory data/local/dict]
+
+**Creating data/local/dict/lexiconp.txt from data/local/dict/lexicon.txt
+prepare_lang.sh: validating output directory
+utils/validate_lang.pl data/lang_bigram
+Checking data/lang_bigram/phones.txt ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/lang_bigram/phones.txt is OK
+
+Checking words.txt: #0 ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/lang_bigram/words.txt is OK
+
+Checking disjoint: silence.txt, nonsilence.txt, disambig.txt ...
+--> silence.txt and nonsilence.txt are disjoint
+--> silence.txt and disambig.txt are disjoint
+--> disambig.txt and nonsilence.txt are disjoint
+--> disjoint property is OK
+
+Checking sumation: silence.txt, nonsilence.txt, disambig.txt ...
+--> summation property is OK
+
+Checking data/lang_bigram/phones/context_indep.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 5 entry/entries in data/lang_bigram/phones/context_indep.txt
+--> data/lang_bigram/phones/context_indep.int corresponds to data/lang_bigram/phones/context_indep.txt
+--> data/lang_bigram/phones/context_indep.csl corresponds to data/lang_bigram/phones/context_indep.txt
+--> data/lang_bigram/phones/context_indep.{txt, int, csl} are OK
+
+Checking data/lang_bigram/phones/nonsilence.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 72 entry/entries in data/lang_bigram/phones/nonsilence.txt
+--> data/lang_bigram/phones/nonsilence.int corresponds to data/lang_bigram/phones/nonsilence.txt
+--> data/lang_bigram/phones/nonsilence.csl corresponds to data/lang_bigram/phones/nonsilence.txt
+--> data/lang_bigram/phones/nonsilence.{txt, int, csl} are OK
+
+Checking data/lang_bigram/phones/silence.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 5 entry/entries in data/lang_bigram/phones/silence.txt
+--> data/lang_bigram/phones/silence.int corresponds to data/lang_bigram/phones/silence.txt
+--> data/lang_bigram/phones/silence.csl corresponds to data/lang_bigram/phones/silence.txt
+--> data/lang_bigram/phones/silence.{txt, int, csl} are OK
+
+Checking data/lang_bigram/phones/optional_silence.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 1 entry/entries in data/lang_bigram/phones/optional_silence.txt
+--> data/lang_bigram/phones/optional_silence.int corresponds to data/lang_bigram/phones/optional_silence.txt
+--> data/lang_bigram/phones/optional_silence.csl corresponds to data/lang_bigram/phones/optional_silence.txt
+--> data/lang_bigram/phones/optional_silence.{txt, int, csl} are OK
+
+Checking data/lang_bigram/phones/disambig.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 4 entry/entries in data/lang_bigram/phones/disambig.txt
+--> data/lang_bigram/phones/disambig.int corresponds to data/lang_bigram/phones/disambig.txt
+--> data/lang_bigram/phones/disambig.csl corresponds to data/lang_bigram/phones/disambig.txt
+--> data/lang_bigram/phones/disambig.{txt, int, csl} are OK
+
+Checking data/lang_bigram/phones/roots.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 19 entry/entries in data/lang_bigram/phones/roots.txt
+--> data/lang_bigram/phones/roots.int corresponds to data/lang_bigram/phones/roots.txt
+--> data/lang_bigram/phones/roots.{txt, int} are OK
+
+Checking data/lang_bigram/phones/sets.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 19 entry/entries in data/lang_bigram/phones/sets.txt
+--> data/lang_bigram/phones/sets.int corresponds to data/lang_bigram/phones/sets.txt
+--> data/lang_bigram/phones/sets.{txt, int} are OK
+
+Checking data/lang_bigram/phones/extra_questions.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 9 entry/entries in data/lang_bigram/phones/extra_questions.txt
+--> data/lang_bigram/phones/extra_questions.int corresponds to data/lang_bigram/phones/extra_questions.txt
+--> data/lang_bigram/phones/extra_questions.{txt, int} are OK
+
+Checking data/lang_bigram/phones/word_boundary.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 77 entry/entries in data/lang_bigram/phones/word_boundary.txt
+--> data/lang_bigram/phones/word_boundary.int corresponds to data/lang_bigram/phones/word_boundary.txt
+--> data/lang_bigram/phones/word_boundary.{txt, int} are OK
+
+Checking optional_silence.txt ...
+--> reading data/lang_bigram/phones/optional_silence.txt
+--> data/lang_bigram/phones/optional_silence.txt is OK
+
+Checking disambiguation symbols: #0 and #1
+--> data/lang_bigram/phones/disambig.txt has "#0" and "#1"
+--> data/lang_bigram/phones/disambig.txt is OK
+
+Checking topo ...
+
+Checking word_boundary.txt: silence.txt, nonsilence.txt, disambig.txt ...
+--> data/lang_bigram/phones/word_boundary.txt doesn't include disambiguation symbols
+--> data/lang_bigram/phones/word_boundary.txt is the union of nonsilence.txt and silence.txt
+--> data/lang_bigram/phones/word_boundary.txt is OK
+
+Checking word-level disambiguation symbols...
+--> data/lang_bigram/phones/wdisambig.txt exists (newer prepare_lang.sh)
+Checking word_boundary.int and disambig.int
+--> generating a 68 word sequence
+--> resulting phone sequence from L.fst corresponds to the word sequence
+--> L.fst is OK
+--> generating a 48 word sequence
+--> resulting phone sequence from L_disambig.fst corresponds to the word sequence
+--> L_disambig.fst is OK
+
+Checking data/lang_bigram/oov.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 1 entry/entries in data/lang_bigram/oov.txt
+--> data/lang_bigram/oov.int corresponds to data/lang_bigram/oov.txt
+--> data/lang_bigram/oov.{txt, int} are OK
+
+--> data/lang_bigram/L.fst is olabel sorted
+--> data/lang_bigram/L_disambig.fst is olabel sorted
+--> SUCCESS [validating lang directory data/lang_bigram]
+LOGFILE:/dev/null
+$bin/ngt -i="$inpfile" -n=$order -gooout=y -o="$gzip -c > $tmpdir/ngram.${sdict}.gz" -fd="$tmpdir/$sdict" $dictionary $additional_parameters >> $logfile 2>&1
+$scr/build-sublm.pl $verbose $prune $prune_thr_str $smoothing "$additional_smoothing_parameters" --size $order --ngrams "$gunzip -c $tmpdir/ngram.${sdict}.gz" -sublm $tmpdir/lm.$sdict $additional_parameters >> $logfile 2>&1
+0.00084943 -9.7057e-07
+============================================================================
+                   End of Script             	        
+============================================================================
+                                                  
+----------------------------------------------
+----------------------------------------------
+                                                  
+     MFCC COMPUTATION and CMVN VALIDATION     
+                                                  
+----------------------------------------------
+----------------------------------------------
+                                                  
+steps/make_mfcc.sh --nj 4 --cmd run.pl --write-utt2num-frames true data/train exp/make_mfcc/train mfcc_feats/train
+steps/make_mfcc.sh: moving data/train/feats.scp to data/train/.backup
+utils/validate_data_dir.sh: Successfully validated data-directory data/train
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+Succeeded creating MFCC features for train
+steps/make_mfcc.sh --nj 4 --cmd run.pl --write-utt2num-frames true data/test exp/make_mfcc/test mfcc_feats/test
+steps/make_mfcc.sh: moving data/test/feats.scp to data/test/.backup
+utils/validate_data_dir.sh: Successfully validated data-directory data/test
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+Succeeded creating MFCC features for test
+steps/compute_cmvn_stats.sh data/train exp/make_mfcc/train mfcc_feats/train
+Succeeded creating CMVN stats for train
+steps/compute_cmvn_stats.sh data/test exp/make_mfcc/test mfcc_feats/test
+Succeeded creating CMVN stats for test
+                                                  
+**************************************************
+**************************************************
+                                                  
+         MONOPHONE TRAINING AND TESTING           
+                                                  
+**************************************************
+**************************************************
+                                                  
+steps/train_mono.sh --nj 4 --cmd run.pl data/train data/lang_bigram exp/mono
+steps/train_mono.sh: Initializing monophone system.
+steps/train_mono.sh: Compiling training graphs
+steps/train_mono.sh: Aligning data equally (pass 0)
+steps/train_mono.sh: Pass 1
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 2
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 3
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 4
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 5
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 6
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 7
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 8
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 9
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 10
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 11
+steps/train_mono.sh: Pass 12
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 13
+steps/train_mono.sh: Pass 14
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 15
+steps/train_mono.sh: Pass 16
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 17
+steps/train_mono.sh: Pass 18
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 19
+steps/train_mono.sh: Pass 20
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 21
+steps/train_mono.sh: Pass 22
+steps/train_mono.sh: Pass 23
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 24
+steps/train_mono.sh: Pass 25
+steps/train_mono.sh: Pass 26
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 27
+steps/train_mono.sh: Pass 28
+steps/train_mono.sh: Pass 29
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 30
+steps/train_mono.sh: Pass 31
+steps/train_mono.sh: Pass 32
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 33
+steps/train_mono.sh: Pass 34
+steps/train_mono.sh: Pass 35
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 36
+steps/train_mono.sh: Pass 37
+steps/train_mono.sh: Pass 38
+steps/train_mono.sh: Aligning data
+steps/train_mono.sh: Pass 39
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang_bigram exp/mono
+steps/diagnostic/analyze_alignments.sh: see stats in exp/mono/log/analyze_alignments.log
+106 warnings in exp/mono/log/align.*.*.log
+exp/mono: nj=4 align prob=-52.03 over 0.56h [retry=0.0%, fail=0.0%] states=57 gauss=990
+steps/train_mono.sh: Done training monophone system in exp/mono
+WARNING: the --mono, --left-biphone and --quinphone options are now deprecated and ignored.
+0.000179431 -3.90333e-05
+0.000179431 -3.90333e-05
+0.0005273 -0.000484225
+steps/decode.sh --nj 4 --cmd run.pl exp/mono/graph data/test exp/mono/decode
+decode.sh: feature type is delta
+steps/diagnostic/analyze_lats.sh --cmd run.pl exp/mono/graph exp/mono/decode
+steps/diagnostic/analyze_lats.sh: see stats in exp/mono/decode/log/analyze_alignments.log
+Overall, lattice depth (10,50,90-percentile)=(1,1,1) and mean=1.1
+steps/diagnostic/analyze_lats.sh: see stats in exp/mono/decode/log/analyze_lattice_depth_stats.log
+local/score.sh --cmd run.pl data/test exp/mono/graph exp/mono/decode
+local/score.sh: scoring with word insertion penalty=0.0,0.5,1.0
+%WER 0.49 [ 11 / 2236, 6 ins, 1 del, 4 sub ]
+%WER 0.49 [ 11 / 2236, 6 ins, 1 del, 4 sub ]
+%WER 0.49 [ 11 / 2236, 6 ins, 1 del, 4 sub ]
+%WER 0.49 [ 11 / 2236, 7 ins, 0 del, 4 sub ]
+%WER 0.49 [ 11 / 2236, 7 ins, 0 del, 4 sub ]
+%WER 0.49 [ 11 / 2236, 7 ins, 0 del, 4 sub ]
+%WER 0.49 [ 11 / 2236, 7 ins, 0 del, 4 sub ]
+%WER 0.49 [ 11 / 2236, 7 ins, 0 del, 4 sub ]
+%WER 0.54 [ 12 / 2236, 7 ins, 1 del, 4 sub ]
+%WER 0.54 [ 12 / 2236, 8 ins, 0 del, 4 sub ]
+%WER 0.54 [ 12 / 2236, 8 ins, 0 del, 4 sub ]
+%WER 0.54 [ 12 / 2236, 8 ins, 0 del, 4 sub ]
+%WER 0.54 [ 12 / 2236, 8 ins, 0 del, 4 sub ]
+%WER 0.54 [ 12 / 2236, 9 ins, 0 del, 3 sub ]
+%WER 0.58 [ 13 / 2236, 10 ins, 0 del, 3 sub ]
+%WER 0.58 [ 13 / 2236, 10 ins, 0 del, 3 sub ]
+%WER 0.58 [ 13 / 2236, 10 ins, 0 del, 3 sub ]
+%WER 0.58 [ 13 / 2236, 10 ins, 0 del, 3 sub ]
+%WER 0.63 [ 14 / 2236, 11 ins, 0 del, 3 sub ]
+%WER 0.63 [ 14 / 2236, 11 ins, 0 del, 3 sub ]
+%WER 0.63 [ 14 / 2236, 11 ins, 0 del, 3 sub ]
+%WER 0.67 [ 15 / 2236, 12 ins, 0 del, 3 sub ]
+%WER 0.67 [ 15 / 2236, 12 ins, 0 del, 3 sub ]
+%WER 0.67 [ 15 / 2236, 12 ins, 0 del, 3 sub ]
+%WER 0.67 [ 15 / 2236, 12 ins, 0 del, 3 sub ]
+%WER 0.67 [ 15 / 2236, 12 ins, 0 del, 3 sub ]
+%WER 0.76 [ 17 / 2236, 14 ins, 0 del, 3 sub ]
+%WER 0.76 [ 17 / 2236, 14 ins, 0 del, 3 sub ]
+%WER 0.81 [ 18 / 2236, 15 ins, 0 del, 3 sub ]
+%WER 0.89 [ 20 / 2236, 17 ins, 0 del, 3 sub ]
+%WER 0.89 [ 20 / 2236, 17 ins, 0 del, 3 sub ]
+%WER 0.89 [ 20 / 2236, 17 ins, 0 del, 3 sub ]
+%WER 0.94 [ 21 / 2236, 18 ins, 0 del, 3 sub ]
+                                                  
+**************************************************
+**************************************************
+                                                  
+     TRI-1 -->  TRAINING AND TESTING (DELTA)         
+                                                  
+**************************************************
+**************************************************
+                                                  
+steps/align_si.sh --boost-silence 1.25 --nj 4 --cmd run.pl data/train data/lang_bigram exp/mono/ exp/mono_ali
+steps/align_si.sh: feature type is delta
+steps/align_si.sh: aligning data in data/train using model from exp/mono/, putting alignments in exp/mono_ali
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang_bigram exp/mono_ali
+steps/diagnostic/analyze_alignments.sh: see stats in exp/mono_ali/log/analyze_alignments.log
+steps/align_si.sh: done aligning data.
+steps/train_deltas.sh --cmd run.pl 2500 30000 data/train data/lang_bigram exp/mono_ali exp/tri1
+steps/train_deltas.sh: accumulating tree stats
+steps/train_deltas.sh: getting questions for tree-building, via clustering
+steps/train_deltas.sh: building the tree
+steps/train_deltas.sh: converting alignments from exp/mono_ali to use current tree
+steps/train_deltas.sh: compiling graphs of transcripts
+steps/train_deltas.sh: training pass 1
+steps/train_deltas.sh: training pass 2
+steps/train_deltas.sh: training pass 3
+steps/train_deltas.sh: training pass 4
+steps/train_deltas.sh: training pass 5
+steps/train_deltas.sh: training pass 6
+steps/train_deltas.sh: training pass 7
+steps/train_deltas.sh: training pass 8
+steps/train_deltas.sh: training pass 9
+steps/train_deltas.sh: training pass 10
+steps/train_deltas.sh: aligning data
+steps/train_deltas.sh: training pass 11
+steps/train_deltas.sh: training pass 12
+steps/train_deltas.sh: training pass 13
+steps/train_deltas.sh: training pass 14
+steps/train_deltas.sh: training pass 15
+steps/train_deltas.sh: training pass 16
+steps/train_deltas.sh: training pass 17
+steps/train_deltas.sh: training pass 18
+steps/train_deltas.sh: training pass 19
+steps/train_deltas.sh: training pass 20
+steps/train_deltas.sh: aligning data
+steps/train_deltas.sh: training pass 21
+steps/train_deltas.sh: training pass 22
+steps/train_deltas.sh: training pass 23
+steps/train_deltas.sh: training pass 24
+steps/train_deltas.sh: training pass 25
+steps/train_deltas.sh: training pass 26
+steps/train_deltas.sh: training pass 27
+steps/train_deltas.sh: training pass 28
+steps/train_deltas.sh: training pass 29
+steps/train_deltas.sh: training pass 30
+steps/train_deltas.sh: aligning data
+steps/train_deltas.sh: training pass 31
+steps/train_deltas.sh: training pass 32
+steps/train_deltas.sh: training pass 33
+steps/train_deltas.sh: training pass 34
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang_bigram exp/tri1
+steps/diagnostic/analyze_alignments.sh: see stats in exp/tri1/log/analyze_alignments.log
+3 warnings in exp/tri1/log/init_model.log
+2238 warnings in exp/tri1/log/update.*.log
+1 warnings in exp/tri1/log/build_tree.log
+12 warnings in exp/tri1/log/align.*.*.log
+exp/tri1: nj=4 align prob=-45.66 over 0.56h [retry=0.0%, fail=0.0%] states=144 gauss=10050 tree-impr=4.03
+steps/train_deltas.sh: Done training system with delta+delta-delta features in exp/tri1
+0.000179431 -3.90333e-05
+0.000530038 -0.000484225
+steps/decode.sh --nj 4 --cmd run.pl exp/tri1/graph data/test exp/tri1/decode
+decode.sh: feature type is delta
+steps/diagnostic/analyze_lats.sh --cmd run.pl exp/tri1/graph exp/tri1/decode
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri1/decode/log/analyze_alignments.log
+Overall, lattice depth (10,50,90-percentile)=(1,1,1) and mean=1.0
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri1/decode/log/analyze_lattice_depth_stats.log
+local/score.sh --cmd run.pl data/test exp/tri1/graph exp/tri1/decode
+local/score.sh: scoring with word insertion penalty=0.0,0.5,1.0
+%WER 0.31 [ 7 / 2236, 2 ins, 4 del, 1 sub ]
+%WER 0.31 [ 7 / 2236, 2 ins, 4 del, 1 sub ]
+%WER 0.31 [ 7 / 2236, 2 ins, 4 del, 1 sub ]
+%WER 0.36 [ 8 / 2236, 2 ins, 3 del, 3 sub ]
+%WER 0.36 [ 8 / 2236, 2 ins, 3 del, 3 sub ]
+%WER 0.36 [ 8 / 2236, 2 ins, 4 del, 2 sub ]
+%WER 0.36 [ 8 / 2236, 2 ins, 4 del, 2 sub ]
+%WER 0.36 [ 8 / 2236, 2 ins, 4 del, 2 sub ]
+%WER 0.36 [ 8 / 2236, 2 ins, 4 del, 2 sub ]
+%WER 0.36 [ 8 / 2236, 2 ins, 4 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+%WER 0.40 [ 9 / 2236, 3 ins, 3 del, 3 sub ]
+                                                  
+********************************************************
+********************************************************
+                                                  
+ TRI-2 -->  TRAINING AND TESTING (DELTA + DELTA-DELTA) 
+                                                  
+********************************************************
+********************************************************
+                                                  
+steps/align_si.sh --nj 4 --cmd run.pl data/train data/lang_bigram exp/tri1/ exp/tri1_ali
+steps/align_si.sh: feature type is delta
+steps/align_si.sh: aligning data in data/train using model from exp/tri1/, putting alignments in exp/tri1_ali
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang_bigram exp/tri1_ali
+steps/diagnostic/analyze_alignments.sh: see stats in exp/tri1_ali/log/analyze_alignments.log
+steps/align_si.sh: done aligning data.
+steps/train_deltas.sh --cmd run.pl 2500 30000 data/train data/lang_bigram exp/tri1_ali exp/tri2
+steps/train_deltas.sh: accumulating tree stats
+steps/train_deltas.sh: getting questions for tree-building, via clustering
+steps/train_deltas.sh: building the tree
+steps/train_deltas.sh: converting alignments from exp/tri1_ali to use current tree
+steps/train_deltas.sh: compiling graphs of transcripts
+steps/train_deltas.sh: training pass 1
+steps/train_deltas.sh: training pass 2
+steps/train_deltas.sh: training pass 3
+steps/train_deltas.sh: training pass 4
+steps/train_deltas.sh: training pass 5
+steps/train_deltas.sh: training pass 6
+steps/train_deltas.sh: training pass 7
+steps/train_deltas.sh: training pass 8
+steps/train_deltas.sh: training pass 9
+steps/train_deltas.sh: training pass 10
+steps/train_deltas.sh: aligning data
+steps/train_deltas.sh: training pass 11
+steps/train_deltas.sh: training pass 12
+steps/train_deltas.sh: training pass 13
+steps/train_deltas.sh: training pass 14
+steps/train_deltas.sh: training pass 15
+steps/train_deltas.sh: training pass 16
+steps/train_deltas.sh: training pass 17
+steps/train_deltas.sh: training pass 18
+steps/train_deltas.sh: training pass 19
+steps/train_deltas.sh: training pass 20
+steps/train_deltas.sh: aligning data
+steps/train_deltas.sh: training pass 21
+steps/train_deltas.sh: training pass 22
+steps/train_deltas.sh: training pass 23
+steps/train_deltas.sh: training pass 24
+steps/train_deltas.sh: training pass 25
+steps/train_deltas.sh: training pass 26
+steps/train_deltas.sh: training pass 27
+steps/train_deltas.sh: training pass 28
+steps/train_deltas.sh: training pass 29
+steps/train_deltas.sh: training pass 30
+steps/train_deltas.sh: aligning data
+steps/train_deltas.sh: training pass 31
+steps/train_deltas.sh: training pass 32
+steps/train_deltas.sh: training pass 33
+steps/train_deltas.sh: training pass 34
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang_bigram exp/tri2
+steps/diagnostic/analyze_alignments.sh: see stats in exp/tri2/log/analyze_alignments.log
+2 warnings in exp/tri2/log/init_model.log
+2134 warnings in exp/tri2/log/update.*.log
+12 warnings in exp/tri2/log/align.*.*.log
+1 warnings in exp/tri2/log/build_tree.log
+exp/tri2: nj=4 align prob=-45.65 over 0.56h [retry=0.0%, fail=0.0%] states=144 gauss=10032 tree-impr=4.05
+steps/train_deltas.sh: Done training system with delta+delta-delta features in exp/tri2
+0.000530038 -0.000484225
+steps/decode.sh --nj 4 --cmd run.pl exp/tri2/graph data/test exp/tri2/decode
+decode.sh: feature type is delta
+steps/diagnostic/analyze_lats.sh --cmd run.pl exp/tri2/graph exp/tri2/decode
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri2/decode/log/analyze_alignments.log
+Overall, lattice depth (10,50,90-percentile)=(1,1,1) and mean=1.0
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri2/decode/log/analyze_lattice_depth_stats.log
+local/score.sh --cmd run.pl data/test exp/tri2/graph exp/tri2/decode
+local/score.sh: scoring with word insertion penalty=0.0,0.5,1.0
+steps/align_si.sh --nj 4 --cmd run.pl data/train data/lang_bigram exp/tri2 exp/tri2_ali
+steps/align_si.sh: feature type is delta
+steps/align_si.sh: aligning data in data/train using model from exp/tri2, putting alignments in exp/tri2_ali
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang_bigram exp/tri2_ali
+steps/diagnostic/analyze_alignments.sh: see stats in exp/tri2_ali/log/analyze_alignments.log
+steps/align_si.sh: done aligning data.
+%WER 0.22 [ 5 / 2236, 2 ins, 1 del, 2 sub ]
+%WER 0.22 [ 5 / 2236, 2 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 3 ins, 1 del, 2 sub ]
+                                                  
+**************************************************
+**************************************************
+                                                  
+    TRI-3 -->  TRAINING AND TESTING (LDA+MLLT)       
+                                                  
+**************************************************
+**************************************************
+                                                  
+steps/train_lda_mllt.sh --cmd run.pl 2000 16000 data/train data/lang_bigram exp/tri2_ali/ exp/tri3
+steps/train_lda_mllt.sh: Accumulating LDA statistics.
+steps/train_lda_mllt.sh: Accumulating tree stats
+steps/train_lda_mllt.sh: Getting questions for tree clustering.
+steps/train_lda_mllt.sh: Building the tree
+steps/train_lda_mllt.sh: Initializing the model
+steps/train_lda_mllt.sh: Converting alignments from exp/tri2_ali/ to use current tree
+steps/train_lda_mllt.sh: Compiling graphs of transcripts
+Training pass 1
+Training pass 2
+steps/train_lda_mllt.sh: Estimating MLLT
+Training pass 3
+Training pass 4
+steps/train_lda_mllt.sh: Estimating MLLT
+Training pass 5
+Training pass 6
+steps/train_lda_mllt.sh: Estimating MLLT
+Training pass 7
+Training pass 8
+Training pass 9
+Training pass 10
+Aligning data
+Training pass 11
+Training pass 12
+steps/train_lda_mllt.sh: Estimating MLLT
+Training pass 13
+Training pass 14
+Training pass 15
+Training pass 16
+Training pass 17
+Training pass 18
+Training pass 19
+Training pass 20
+Aligning data
+Training pass 21
+Training pass 22
+Training pass 23
+Training pass 24
+Training pass 25
+Training pass 26
+Training pass 27
+Training pass 28
+Training pass 29
+Training pass 30
+Aligning data
+Training pass 31
+Training pass 32
+Training pass 33
+Training pass 34
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang_bigram exp/tri3
+steps/diagnostic/analyze_alignments.sh: see stats in exp/tri3/log/analyze_alignments.log
+1342 warnings in exp/tri3/log/update.*.log
+1 warnings in exp/tri3/log/build_tree.log
+12 warnings in exp/tri3/log/align.*.*.log
+10 warnings in exp/tri3/log/init_model.log
+exp/tri3: nj=4 align prob=-32.39 over 0.56h [retry=0.0%, fail=0.0%] states=152 gauss=10034 tree-impr=3.41 lda-sum=20.35 mllt:impr,logdet=2.31,5.49
+steps/train_lda_mllt.sh: Done training system with LDA+MLLT features in exp/tri3
+0.0005273 -0.000484225
+steps/decode.sh --cmd run.pl --nj 3 exp/tri3/graph/ data/test exp/tri3/decode
+decode.sh: feature type is lda
+steps/diagnostic/analyze_lats.sh --cmd run.pl exp/tri3/graph/ exp/tri3/decode
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3/decode/log/analyze_alignments.log
+Overall, lattice depth (10,50,90-percentile)=(1,1,1) and mean=1.0
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri3/decode/log/analyze_lattice_depth_stats.log
+local/score.sh --cmd run.pl data/test exp/tri3/graph/ exp/tri3/decode
+local/score.sh: scoring with word insertion penalty=0.0,0.5,1.0
+steps/align_si.sh --nj 4 --cmd run.pl --use-graphs true data/train data/lang_bigram exp/tri3 exp/tri3_ali
+steps/align_si.sh: feature type is lda
+steps/align_si.sh: aligning data in data/train using model from exp/tri3, putting alignments in exp/tri3_ali
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang_bigram exp/tri3_ali
+steps/diagnostic/analyze_alignments.sh: see stats in exp/tri3_ali/log/analyze_alignments.log
+steps/align_si.sh: done aligning data.
+%WER 0.27 [ 6 / 2236, 1 ins, 3 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 1 ins, 3 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 1 ins, 3 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 1 ins, 3 del, 2 sub ]
+%WER 0.27 [ 6 / 2236, 1 ins, 3 del, 2 sub ]
+%WER 0.31 [ 7 / 2236, 2 ins, 3 del, 2 sub ]
+%WER 0.31 [ 7 / 2236, 2 ins, 3 del, 2 sub ]
+%WER 0.31 [ 7 / 2236, 2 ins, 3 del, 2 sub ]
+%WER 0.31 [ 7 / 2236, 2 ins, 3 del, 2 sub ]
+%WER 0.31 [ 7 / 2236, 2 ins, 3 del, 2 sub ]
+%WER 0.31 [ 7 / 2236, 2 ins, 3 del, 2 sub ]
+%WER 0.31 [ 7 / 2236, 4 ins, 2 del, 1 sub ]
+%WER 0.36 [ 8 / 2236, 3 ins, 3 del, 2 sub ]
+%WER 0.36 [ 8 / 2236, 3 ins, 3 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 4 ins, 3 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 4 ins, 3 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 4 ins, 3 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 4 ins, 3 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 4 ins, 3 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 4 ins, 3 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 4 ins, 3 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 4 ins, 3 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 4 ins, 3 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 4 ins, 3 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 5 ins, 2 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 5 ins, 2 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 5 ins, 2 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 5 ins, 2 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 5 ins, 2 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 5 ins, 2 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 5 ins, 2 del, 2 sub ]
+%WER 0.40 [ 9 / 2236, 5 ins, 2 del, 2 sub ]
+%WER 0.45 [ 10 / 2236, 5 ins, 3 del, 2 sub ]
+                                                  
+**************************************************
+**************************************************
+                                                  
+  TRI-4 -->  TRAINING AND TESTING (LDA+MLLT+SAT)     
+                                                  
+**************************************************
+**************************************************
+                                                  
+steps/train_sat.sh --cmd run.pl 2000 16000 data/train data/lang_bigram exp/tri3 exp/tri4
+steps/train_sat.sh: feature type is lda
+steps/train_sat.sh: obtaining initial fMLLR transforms since not present in exp/tri3
+steps/train_sat.sh: Accumulating tree stats
+steps/train_sat.sh: Getting questions for tree clustering.
+steps/train_sat.sh: Building the tree
+steps/train_sat.sh: Initializing the model
+steps/train_sat.sh: Converting alignments from exp/tri3 to use current tree
+steps/train_sat.sh: Compiling graphs of transcripts
+Pass 1
+Pass 2
+Estimating fMLLR transforms
+Pass 3
+Pass 4
+Estimating fMLLR transforms
+Pass 5
+Pass 6
+Estimating fMLLR transforms
+Pass 7
+Pass 8
+Pass 9
+Pass 10
+Aligning data
+Pass 11
+Pass 12
+Estimating fMLLR transforms
+Pass 13
+Pass 14
+Pass 15
+Pass 16
+Pass 17
+Pass 18
+Pass 19
+Pass 20
+Aligning data
+Pass 21
+Pass 22
+Pass 23
+Pass 24
+Pass 25
+Pass 26
+Pass 27
+Pass 28
+Pass 29
+Pass 30
+Aligning data
+Pass 31
+Pass 32
+Pass 33
+Pass 34
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang_bigram exp/tri4
+steps/diagnostic/analyze_alignments.sh: see stats in exp/tri4/log/analyze_alignments.log
+1 warnings in exp/tri4/log/build_tree.log
+12 warnings in exp/tri4/log/align.*.*.log
+2 warnings in exp/tri4/log/est_alimdl.log
+21 warnings in exp/tri4/log/init_model.log
+1134 warnings in exp/tri4/log/update.*.log
+steps/train_sat.sh: Likelihood evolution:
+-44.2863 -44.0293 -42.6652 -41.6623 -39.8578 -38.2208 -37.3044 -36.5775 -36.0066 -35.4683 -35.0472 -34.5514 -34.2797 -34.0745 -33.8839 -33.6896 -33.4856 -33.2606 -33.0204 -32.7443 -32.474 -32.286 -32.1637 -32.0848 -32.0338 -31.9969 -31.971 -31.9507 -31.9347 -31.9197 -31.9037 -31.8967 -31.8855 -31.8802 
+exp/tri4: nj=4 align prob=-36.99 over 0.56h [retry=0.0%, fail=0.0%] states=168 gauss=10012 fmllr-impr=3.95 over 0.27h tree-impr=4.81
+steps/train_sat.sh: done training SAT system in exp/tri4
+0.0005273 -0.000484225
+steps/decode_fmllr.sh --nj 4 --cmd run.pl exp/tri4/graph data/test exp/tri4/decode
+steps/decode.sh --scoring-opts  --num-threads 1 --skip-scoring false --acwt 0.083333 --nj 4 --cmd run.pl --beam 10.0 --model exp/tri4/final.alimdl --max-active 2000 exp/tri4/graph data/test exp/tri4/decode.si
+decode.sh: feature type is lda
+steps/diagnostic/analyze_lats.sh --cmd run.pl exp/tri4/graph exp/tri4/decode.si
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri4/decode.si/log/analyze_alignments.log
+Overall, lattice depth (10,50,90-percentile)=(1,1,1) and mean=1.0
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri4/decode.si/log/analyze_lattice_depth_stats.log
+local/score.sh --cmd run.pl data/test exp/tri4/graph exp/tri4/decode.si
+local/score.sh: scoring with word insertion penalty=0.0,0.5,1.0
+steps/decode_fmllr.sh: feature type is lda
+steps/decode_fmllr.sh: getting first-pass fMLLR transforms.
+steps/decode_fmllr.sh: doing main lattice generation phase
+steps/decode_fmllr.sh: estimating fMLLR transforms a second time.
+steps/decode_fmllr.sh: doing a final pass of acoustic rescoring.
+steps/diagnostic/analyze_lats.sh --cmd run.pl exp/tri4/graph exp/tri4/decode
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri4/decode/log/analyze_alignments.log
+Overall, lattice depth (10,50,90-percentile)=(1,1,1) and mean=1.0
+steps/diagnostic/analyze_lats.sh: see stats in exp/tri4/decode/log/analyze_lattice_depth_stats.log
+local/score.sh --cmd run.pl data/test exp/tri4/graph exp/tri4/decode
+local/score.sh: scoring with word insertion penalty=0.0,0.5,1.0
+%WER 0.18 [ 4 / 2236, 0 ins, 2 del, 2 sub ]
+%WER 0.18 [ 4 / 2236, 0 ins, 2 del, 2 sub ]
+%WER 0.18 [ 4 / 2236, 0 ins, 2 del, 2 sub ]
+%WER 0.22 [ 5 / 2236, 0 ins, 2 del, 3 sub ]
+%WER 0.22 [ 5 / 2236, 0 ins, 2 del, 3 sub ]
+%WER 0.22 [ 5 / 2236, 0 ins, 2 del, 3 sub ]
+%WER 0.22 [ 5 / 2236, 0 ins, 2 del, 3 sub ]
+%WER 0.22 [ 5 / 2236, 0 ins, 2 del, 3 sub ]
+%WER 0.22 [ 5 / 2236, 0 ins, 2 del, 3 sub ]
+%WER 0.22 [ 5 / 2236, 0 ins, 2 del, 3 sub ]
+%WER 0.22 [ 5 / 2236, 0 ins, 2 del, 3 sub ]
+%WER 0.22 [ 5 / 2236, 0 ins, 2 del, 3 sub ]
+%WER 0.22 [ 5 / 2236, 0 ins, 2 del, 3 sub ]
+%WER 0.22 [ 5 / 2236, 0 ins, 2 del, 3 sub ]
+%WER 0.27 [ 6 / 2236, 1 ins, 2 del, 3 sub ]
+%WER 0.27 [ 6 / 2236, 1 ins, 2 del, 3 sub ]
+%WER 0.27 [ 6 / 2236, 1 ins, 2 del, 3 sub ]
+%WER 0.27 [ 6 / 2236, 1 ins, 2 del, 3 sub ]
+%WER 0.31 [ 7 / 2236, 2 ins, 2 del, 3 sub ]
+%WER 0.31 [ 7 / 2236, 2 ins, 2 del, 3 sub ]
+%WER 0.31 [ 7 / 2236, 2 ins, 2 del, 3 sub ]
+%WER 0.31 [ 7 / 2236, 2 ins, 2 del, 3 sub ]
+%WER 0.31 [ 7 / 2236, 2 ins, 2 del, 3 sub ]
+%WER 0.31 [ 7 / 2236, 2 ins, 2 del, 3 sub ]
+%WER 0.31 [ 7 / 2236, 2 ins, 2 del, 3 sub ]
+%WER 0.36 [ 8 / 2236, 3 ins, 2 del, 3 sub ]
+%WER 0.36 [ 8 / 2236, 3 ins, 2 del, 3 sub ]
+%WER 0.36 [ 8 / 2236, 3 ins, 2 del, 3 sub ]
+%WER 0.36 [ 8 / 2236, 3 ins, 2 del, 3 sub ]
+%WER 0.36 [ 8 / 2236, 3 ins, 2 del, 3 sub ]
+%WER 0.36 [ 8 / 2236, 3 ins, 2 del, 3 sub ]
+%WER 0.36 [ 8 / 2236, 3 ins, 2 del, 3 sub ]
+%WER 0.36 [ 8 / 2236, 3 ins, 2 del, 3 sub ]
+                                                  
+**************************************************
+**************************************************
+                                                  
+            SGMM  TRAINING AND TESTING            
+                                                  
+**************************************************
+**************************************************
+                                                  
+steps/align_fmllr.sh --nj 4 --cmd run.pl data/train data/lang_bigram exp/tri4 exp/tri4_ali
+steps/align_fmllr.sh: feature type is lda
+steps/align_fmllr.sh: compiling training graphs
+steps/align_fmllr.sh: aligning data in data/train using exp/tri4/final.alimdl and speaker-independent features.
+steps/align_fmllr.sh: computing fMLLR transforms
+steps/align_fmllr.sh: doing final alignment.
+steps/align_fmllr.sh: done aligning data.
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang_bigram exp/tri4_ali
+steps/diagnostic/analyze_alignments.sh: see stats in exp/tri4_ali/log/analyze_alignments.log
+4 warnings in exp/tri4_ali/log/align_pass1.*.log
+4 warnings in exp/tri4_ali/log/align_pass2.*.log
+steps/train_ubm.sh --cmd run.pl 700 data/train data/lang_bigram exp/tri4_ali exp/ubm
+steps/train_ubm.sh: feature type is lda
+steps/train_ubm.sh: using transforms from exp/tri4_ali
+steps/train_ubm.sh: clustering model exp/tri4_ali/final.mdl to get initial UBM
+steps/train_ubm.sh: doing Gaussian selection
+Pass 0
+Pass 1
+Pass 2
+steps/train_sgmm2.sh --cmd run.pl 10000 7000 data/train data/lang_bigram exp/tri4_ali exp/ubm/final.ubm exp/sgmm
+steps/train_sgmm2.sh: feature type is lda
+steps/train_sgmm2.sh: using transforms from exp/tri4_ali
+steps/train_sgmm2.sh: accumulating tree stats
+steps/train_sgmm2.sh: Getting questions for tree clustering.
+steps/train_sgmm2.sh: Building the tree
+steps/train_sgmm2.sh: Initializing the model
+steps/train_sgmm2.sh: doing Gaussian selection
+steps/train_sgmm2.sh: compiling training graphs
+steps/train_sgmm2.sh: converting alignments
+steps/train_sgmm2.sh: training pass 0 ... 
+steps/train_sgmm2.sh: training pass 1 ... 
+steps/train_sgmm2.sh: training pass 2 ... 
+steps/train_sgmm2.sh: training pass 3 ... 
+steps/train_sgmm2.sh: training pass 4 ... 
+steps/train_sgmm2.sh: training pass 5 ... 
+steps/train_sgmm2.sh: re-aligning data
+steps/train_sgmm2.sh: training pass 6 ... 
+steps/train_sgmm2.sh: training pass 7 ... 
+steps/train_sgmm2.sh: training pass 8 ... 
+steps/train_sgmm2.sh: training pass 9 ... 
+steps/train_sgmm2.sh: training pass 10 ... 
+steps/train_sgmm2.sh: re-aligning data
+steps/train_sgmm2.sh: training pass 11 ... 
+steps/train_sgmm2.sh: training pass 12 ... 
+steps/train_sgmm2.sh: training pass 13 ... 
+steps/train_sgmm2.sh: training pass 14 ... 
+steps/train_sgmm2.sh: training pass 15 ... 
+steps/train_sgmm2.sh: re-aligning data
+steps/train_sgmm2.sh: training pass 16 ... 
+steps/train_sgmm2.sh: training pass 17 ... 
+steps/train_sgmm2.sh: training pass 18 ... 
+steps/train_sgmm2.sh: training pass 19 ... 
+steps/train_sgmm2.sh: training pass 20 ... 
+steps/train_sgmm2.sh: training pass 21 ... 
+steps/train_sgmm2.sh: training pass 22 ... 
+steps/train_sgmm2.sh: training pass 23 ... 
+steps/train_sgmm2.sh: training pass 24 ... 
+steps/train_sgmm2.sh: building alignment model (pass 25)
+steps/train_sgmm2.sh: building alignment model (pass 26)
+steps/train_sgmm2.sh: building alignment model (pass 27)
+1 warnings in exp/sgmm/log/build_tree.log
+2744 warnings in exp/sgmm/log/update.*.log
+583 warnings in exp/sgmm/log/update_ali.*.log
+Done
+0.000530038 -0.000484225
+steps/decode_sgmm2.sh --nj 4 --cmd run.pl --transform-dir exp/tri4/decode exp/sgmm/graph data/test exp/sgmm/decode
+steps/decode_sgmm2.sh: feature type is lda
+steps/decode_sgmm2.sh: using transforms from exp/tri4/decode
+steps/diagnostic/analyze_lats.sh --cmd run.pl exp/sgmm/graph exp/sgmm/decode
+steps/diagnostic/analyze_lats.sh: see stats in exp/sgmm/decode/log/analyze_alignments.log
+Overall, lattice depth (10,50,90-percentile)=(1,1,1) and mean=1.0
+steps/diagnostic/analyze_lats.sh: see stats in exp/sgmm/decode/log/analyze_lattice_depth_stats.log
+local/score.sh --cmd run.pl data/test exp/sgmm/graph exp/sgmm/decode
+local/score.sh: scoring with word insertion penalty=0.0,0.5,1.0
+steps/align_sgmm2.sh --nj 4 --cmd run.pl --transform-dir exp/tri4_ali --use-graphs true --use-gselect true data/train data/lang_bigram exp/sgmm exp/sgmm_ali
+steps/align_sgmm2.sh: feature type is lda
+steps/align_sgmm2.sh: using transforms from exp/tri4_ali
+steps/align_sgmm2.sh: aligning data in data/train using model exp/sgmm/final.alimdl
+steps/align_sgmm2.sh: computing speaker vectors (1st pass)
+steps/align_sgmm2.sh: computing speaker vectors (2nd pass)
+steps/align_sgmm2.sh: doing final alignment.
+steps/align_sgmm2.sh: done aligning data.
+steps/diagnostic/analyze_alignments.sh --cmd run.pl data/lang_bigram exp/sgmm_ali
+steps/diagnostic/analyze_alignments.sh: see stats in exp/sgmm_ali/log/analyze_alignments.log
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+%WER 0.00 [ 0 / 2236, 0 ins, 0 del, 0 sub ]
+                                                  
+**************************************************
+**************************************************
+                                                  
+         TRAINING AND TESTING FINISHED                
+                                                  
+**************************************************
+**************************************************
+                                                  

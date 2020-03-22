@@ -1,0 +1,28 @@
+# lattice-determinize-pruned --acoustic-scale=0.083333 --beam=4.0 "ark:gunzip -c exp/tri4/decode/lat.tmp.3.gz|" ark:- | lattice-to-post --acoustic-scale=0.083333 ark:- ark:- | weight-silence-post 0.01 1:2:3:4:5 exp/tri4/final.mdl ark:- ark:- | gmm-est-fmllr --fmllr-update-type=full --spk2utt=ark:data/test/split4/3/spk2utt exp/tri4/final.mdl "ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split4/3/utt2spk scp:data/test/split4/3/cmvn.scp scp:data/test/split4/3/feats.scp ark:- | splice-feats  ark:- ark:- | transform-feats exp/tri4/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/test/split4/3/utt2spk ark:exp/tri4/decode/pre_trans.3 ark:- ark:- |" ark,s,cs:- ark:exp/tri4/decode/trans_tmp.3 && compose-transforms --b-is-affine=true ark:exp/tri4/decode/trans_tmp.3 ark:exp/tri4/decode/pre_trans.3 ark:exp/tri4/decode/trans.3 
+# Started at Sun Mar 22 09:33:42 IST 2020
+#
+lattice-determinize-pruned --acoustic-scale=0.083333 --beam=4.0 'ark:gunzip -c exp/tri4/decode/lat.tmp.3.gz|' ark:- 
+lattice-to-post --acoustic-scale=0.083333 ark:- ark:- 
+gmm-est-fmllr --fmllr-update-type=full --spk2utt=ark:data/test/split4/3/spk2utt exp/tri4/final.mdl 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split4/3/utt2spk scp:data/test/split4/3/cmvn.scp scp:data/test/split4/3/feats.scp ark:- | splice-feats  ark:- ark:- | transform-feats exp/tri4/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/test/split4/3/utt2spk ark:exp/tri4/decode/pre_trans.3 ark:- ark:- |' ark,s,cs:- ark:exp/tri4/decode/trans_tmp.3 
+weight-silence-post 0.01 1:2:3:4:5 exp/tri4/final.mdl ark:- ark:- 
+splice-feats ark:- ark:- 
+apply-cmvn --utt2spk=ark:data/test/split4/3/utt2spk scp:data/test/split4/3/cmvn.scp scp:data/test/split4/3/feats.scp ark:- 
+transform-feats --utt2spk=ark:data/test/split4/3/utt2spk ark:exp/tri4/decode/pre_trans.3 ark:- ark:- 
+transform-feats exp/tri4/final.mat ark:- ark:- 
+LOG (lattice-determinize-pruned[5.5.620~1-dce1dc]:main():lattice-determinize-pruned.cc:159) Average input-lattice depth (measured at at state level) is 2.21997, output depth is 1.01126, over 50435 frames  (average num-frames = 630.438).
+LOG (lattice-determinize-pruned[5.5.620~1-dce1dc]:main():lattice-determinize-pruned.cc:164) Done 80 lattices, determinization finished earlier than specified by the beam (or output was empty) on 0 of these.
+LOG (lattice-to-post[5.5.620~1-dce1dc]:main():lattice-to-post.cc:106) Overall average log-like/frame is -3.14679 over 50435 frames.  Average acoustic like/frame is -3.0888
+LOG (lattice-to-post[5.5.620~1-dce1dc]:main():lattice-to-post.cc:110) Done 80 lattices.
+LOG (weight-silence-post[5.5.620~1-dce1dc]:main():weight-silence-post.cc:95) Done 80 posteriors.
+LOG (apply-cmvn[5.5.620~1-dce1dc]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 80 utterances, errors on 0
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -54.6572 over 50435 frames.
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:161) Applied transform to 80 utterances; 0 had errors.
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:158) Overall average logdet is 3.70705 over 50435 frames.
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:161) Applied transform to 80 utterances; 0 had errors.
+LOG (gmm-est-fmllr[5.5.620~1-dce1dc]:ComputeFmllrMatrixDiagGmmFull():fmllr-diag-gmm.cc:262) fMLLR objf improvement is 0.00433178 per frame over 26605.7 frames.
+LOG (gmm-est-fmllr[5.5.620~1-dce1dc]:main():gmm-est-fmllr.cc:143) For speaker PN00M01, auxf-impr from fMLLR is 0.00433178, over 26605.7 frames.
+LOG (gmm-est-fmllr[5.5.620~1-dce1dc]:main():gmm-est-fmllr.cc:188) Done 80 files, 0 with no posts, 0 with other errors.
+LOG (gmm-est-fmllr[5.5.620~1-dce1dc]:main():gmm-est-fmllr.cc:190) Overall fMLLR auxf impr per frame is 0.00433178 over 26605.7 frames.
+compose-transforms --b-is-affine=true ark:exp/tri4/decode/trans_tmp.3 ark:exp/tri4/decode/pre_trans.3 ark:exp/tri4/decode/trans.3 
+# Accounting: time=6 threads=1
+# Ended (code 0) at Sun Mar 22 09:33:48 IST 2020, elapsed time 6 seconds

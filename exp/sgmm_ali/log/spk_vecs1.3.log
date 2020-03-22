@@ -1,0 +1,49 @@
+# ali-to-post "ark:gunzip -c exp/sgmm_ali/pre_ali.3.gz|" ark:- | weight-silence-post 0.0 1:2:3:4:5 exp/sgmm/final.alimdl ark:- ark:- | sgmm2-post-to-gpost "--gselect=ark,s,cs:gunzip -c exp/sgmm/gselect.3.gz|" exp/sgmm/final.alimdl "ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split4/3/utt2spk scp:data/train/split4/3/cmvn.scp scp:data/train/split4/3/feats.scp ark:- | splice-feats  ark:- ark:- | transform-feats exp/sgmm/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/train/split4/3/utt2spk ark,s,cs:exp/tri4_ali/trans.3 ark:- ark:- |" ark:- ark:- | sgmm2-est-spkvecs-gpost --spk2utt=ark:data/train/split4/3/spk2utt exp/sgmm/final.mdl "ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split4/3/utt2spk scp:data/train/split4/3/cmvn.scp scp:data/train/split4/3/feats.scp ark:- | splice-feats  ark:- ark:- | transform-feats exp/sgmm/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/train/split4/3/utt2spk ark,s,cs:exp/tri4_ali/trans.3 ark:- ark:- |" ark,s,cs:- ark:exp/sgmm_ali/pre_vecs.3 
+# Started at Sun Mar 22 09:56:36 IST 2020
+#
+sgmm2-post-to-gpost '--gselect=ark,s,cs:gunzip -c exp/sgmm/gselect.3.gz|' exp/sgmm/final.alimdl 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split4/3/utt2spk scp:data/train/split4/3/cmvn.scp scp:data/train/split4/3/feats.scp ark:- | splice-feats  ark:- ark:- | transform-feats exp/sgmm/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/train/split4/3/utt2spk ark,s,cs:exp/tri4_ali/trans.3 ark:- ark:- |' ark:- ark:- 
+weight-silence-post 0.0 1:2:3:4:5 exp/sgmm/final.alimdl ark:- ark:- 
+ali-to-post 'ark:gunzip -c exp/sgmm_ali/pre_ali.3.gz|' ark:- 
+sgmm2-est-spkvecs-gpost --spk2utt=ark:data/train/split4/3/spk2utt exp/sgmm/final.mdl 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split4/3/utt2spk scp:data/train/split4/3/cmvn.scp scp:data/train/split4/3/feats.scp ark:- | splice-feats  ark:- ark:- | transform-feats exp/sgmm/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/train/split4/3/utt2spk ark,s,cs:exp/tri4_ali/trans.3 ark:- ark:- |' ark,s,cs:- ark:exp/sgmm_ali/pre_vecs.3 
+transform-feats --utt2spk=ark:data/train/split4/3/utt2spk ark,s,cs:exp/tri4_ali/trans.3 ark:- ark:- 
+transform-feats exp/sgmm/final.mat ark:- ark:- 
+splice-feats ark:- ark:- 
+apply-cmvn --utt2spk=ark:data/train/split4/3/utt2spk scp:data/train/split4/3/cmvn.scp scp:data/train/split4/3/feats.scp ark:- 
+transform-feats exp/sgmm/final.mat ark:- ark:- 
+splice-feats ark:- ark:- 
+apply-cmvn --utt2spk=ark:data/train/split4/3/utt2spk scp:data/train/split4/3/cmvn.scp scp:data/train/split4/3/feats.scp ark:- 
+transform-feats --utt2spk=ark:data/train/split4/3/utt2spk ark,s,cs:exp/tri4_ali/trans.3 ark:- ark:- 
+LOG (sgmm2-post-to-gpost[5.5.620~1-dce1dc]:main():sgmm2-post-to-gpost.cc:168) Avg like per frame so far is -17.4424
+LOG (sgmm2-post-to-gpost[5.5.620~1-dce1dc]:main():sgmm2-post-to-gpost.cc:168) Avg like per frame so far is -17.9888
+LOG (sgmm2-post-to-gpost[5.5.620~1-dce1dc]:main():sgmm2-post-to-gpost.cc:168) Avg like per frame so far is -18.7271
+LOG (sgmm2-post-to-gpost[5.5.620~1-dce1dc]:main():sgmm2-post-to-gpost.cc:168) Avg like per frame so far is -18.7542
+LOG (sgmm2-post-to-gpost[5.5.620~1-dce1dc]:main():sgmm2-post-to-gpost.cc:168) Avg like per frame so far is -19.1484
+LOG (sgmm2-post-to-gpost[5.5.620~1-dce1dc]:main():sgmm2-post-to-gpost.cc:168) Avg like per frame so far is -19.2199
+LOG (ali-to-post[5.5.620~1-dce1dc]:main():ali-to-post.cc:73) Converted 80 alignments.
+LOG (sgmm2-post-to-gpost[5.5.620~1-dce1dc]:main():sgmm2-post-to-gpost.cc:168) Avg like per frame so far is -19.0994
+LOG (weight-silence-post[5.5.620~1-dce1dc]:main():weight-silence-post.cc:95) Done 80 posteriors.
+LOG (apply-cmvn[5.5.620~1-dce1dc]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 80 utterances, errors on 0
+LOG (apply-cmvn[5.5.620~1-dce1dc]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 80 utterances, errors on 0
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -54.6572 over 50435 frames.
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:161) Applied transform to 80 utterances; 0 had errors.
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -54.6572 over 50435 frames.
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:161) Applied transform to 80 utterances; 0 had errors.
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:158) Overall average logdet is 3.71513 over 50435 frames.
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:161) Applied transform to 80 utterances; 0 had errors.
+LOG (sgmm2-post-to-gpost[5.5.620~1-dce1dc]:main():sgmm2-post-to-gpost.cc:168) Avg like per frame so far is -19.0372
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:158) Overall average logdet is 3.71513 over 50435 frames.
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:161) Applied transform to 80 utterances; 0 had errors.
+LOG (sgmm2-post-to-gpost[5.5.620~1-dce1dc]:main():sgmm2-post-to-gpost.cc:173) Overall like per frame (Gaussian only) = -19.0372 over 50435 frames.
+LOG (sgmm2-post-to-gpost[5.5.620~1-dce1dc]:main():sgmm2-post-to-gpost.cc:176) Done 80 files, 0 with errors.
+LOG (sgmm2-est-spkvecs-gpost[5.5.620~1-dce1dc]:SolveQuadraticProblem<double>():sp-matrix.cc:686) Solving quadratic problem for v_s: floored 28 eigenvalues. 
+LOG (sgmm2-est-spkvecs-gpost[5.5.620~1-dce1dc]:SolveQuadraticProblem<double>():sp-matrix.cc:686) Solving quadratic problem for v_s: floored 28 eigenvalues. 
+LOG (sgmm2-est-spkvecs-gpost[5.5.620~1-dce1dc]:SolveQuadraticProblem<double>():sp-matrix.cc:686) Solving quadratic problem for v_s: floored 28 eigenvalues. 
+LOG (sgmm2-est-spkvecs-gpost[5.5.620~1-dce1dc]:SolveQuadraticProblem<double>():sp-matrix.cc:686) Solving quadratic problem for v_s: floored 28 eigenvalues. 
+LOG (sgmm2-est-spkvecs-gpost[5.5.620~1-dce1dc]:SolveQuadraticProblem<double>():sp-matrix.cc:686) Solving quadratic problem for v_s: floored 28 eigenvalues. 
+LOG (sgmm2-est-spkvecs-gpost[5.5.620~1-dce1dc]:UpdateWithU():estimate-am-sgmm2.cc:1937) *Objf impr for speaker vector is 7.45821 per frame, over 26582 frames.
+LOG (sgmm2-est-spkvecs-gpost[5.5.620~1-dce1dc]:main():sgmm2-est-spkvecs-gpost.cc:158) For speaker PN00M01, auxf-impr from speaker vector is 7.45821, over 26582 frames.
+
+LOG (sgmm2-est-spkvecs-gpost[5.5.620~1-dce1dc]:main():sgmm2-est-spkvecs-gpost.cc:208) Done 80 files, 0 with errors.
+LOG (sgmm2-est-spkvecs-gpost[5.5.620~1-dce1dc]:main():sgmm2-est-spkvecs-gpost.cc:210) Overall auxf impr per frame is 7.45821 over 26582 frames.
+# Accounting: time=2 threads=1
+# Ended (code 0) at Sun Mar 22 09:56:38 IST 2020, elapsed time 2 seconds

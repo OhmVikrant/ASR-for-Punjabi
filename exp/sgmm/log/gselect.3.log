@@ -1,0 +1,24 @@
+# sgmm2-gselect exp/sgmm/0.mdl "ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split4/3/utt2spk scp:data/train/split4/3/cmvn.scp scp:data/train/split4/3/feats.scp ark:- | splice-feats  ark:- ark:- | transform-feats exp/tri4_ali/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/train/split4/3/utt2spk ark,s,cs:exp/tri4_ali/trans.3 ark:- ark:- |" "ark,t:|gzip -c >exp/sgmm/gselect.3.gz" 
+# Started at Sun Mar 22 09:34:25 IST 2020
+#
+sgmm2-gselect exp/sgmm/0.mdl 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/train/split4/3/utt2spk scp:data/train/split4/3/cmvn.scp scp:data/train/split4/3/feats.scp ark:- | splice-feats  ark:- ark:- | transform-feats exp/tri4_ali/final.mat ark:- ark:- | transform-feats --utt2spk=ark:data/train/split4/3/utt2spk ark,s,cs:exp/tri4_ali/trans.3 ark:- ark:- |' 'ark,t:|gzip -c >exp/sgmm/gselect.3.gz' 
+transform-feats exp/tri4_ali/final.mat ark:- ark:- 
+apply-cmvn --utt2spk=ark:data/train/split4/3/utt2spk scp:data/train/split4/3/cmvn.scp scp:data/train/split4/3/feats.scp ark:- 
+splice-feats ark:- ark:- 
+transform-feats --utt2spk=ark:data/train/split4/3/utt2spk ark,s,cs:exp/tri4_ali/trans.3 ark:- ark:- 
+LOG (sgmm2-gselect[5.5.620~1-dce1dc]:main():sgmm2-gselect.cc:86) For 0'th file, average UBM likelihood over 630 frames is -42.4857
+LOG (sgmm2-gselect[5.5.620~1-dce1dc]:main():sgmm2-gselect.cc:86) For 10'th file, average UBM likelihood over 577 frames is -41.6524
+LOG (sgmm2-gselect[5.5.620~1-dce1dc]:main():sgmm2-gselect.cc:86) For 20'th file, average UBM likelihood over 630 frames is -43.6092
+LOG (sgmm2-gselect[5.5.620~1-dce1dc]:main():sgmm2-gselect.cc:86) For 30'th file, average UBM likelihood over 629 frames is -39.2046
+LOG (sgmm2-gselect[5.5.620~1-dce1dc]:main():sgmm2-gselect.cc:86) For 40'th file, average UBM likelihood over 630 frames is -40.8567
+LOG (sgmm2-gselect[5.5.620~1-dce1dc]:main():sgmm2-gselect.cc:86) For 50'th file, average UBM likelihood over 629 frames is -40.8685
+LOG (sgmm2-gselect[5.5.620~1-dce1dc]:main():sgmm2-gselect.cc:86) For 60'th file, average UBM likelihood over 630 frames is -40.1985
+LOG (sgmm2-gselect[5.5.620~1-dce1dc]:main():sgmm2-gselect.cc:86) For 70'th file, average UBM likelihood over 630 frames is -39.8589
+LOG (apply-cmvn[5.5.620~1-dce1dc]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 80 utterances, errors on 0
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -54.6572 over 50435 frames.
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:161) Applied transform to 80 utterances; 0 had errors.
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:158) Overall average logdet is 3.71513 over 50435 frames.
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:161) Applied transform to 80 utterances; 0 had errors.
+LOG (sgmm2-gselect[5.5.620~1-dce1dc]:main():sgmm2-gselect.cc:97) Done 80 files, 0 with errors, average UBM log-likelihood is -40.3597 over 50435 frames.
+# Accounting: time=2 threads=1
+# Ended (code 0) at Sun Mar 22 09:34:27 IST 2020, elapsed time 2 seconds

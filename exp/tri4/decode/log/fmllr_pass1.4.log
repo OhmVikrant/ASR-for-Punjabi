@@ -1,0 +1,32 @@
+# gunzip -c exp/tri4/decode.si/lat.4.gz | lattice-to-post --acoustic-scale=0.083333 ark:- ark:- | weight-silence-post 0.01 1:2:3:4:5 exp/tri4/final.alimdl ark:- ark:- | gmm-post-to-gpost exp/tri4/final.alimdl "ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split4/4/utt2spk scp:data/test/split4/4/cmvn.scp scp:data/test/split4/4/feats.scp ark:- | splice-feats  ark:- ark:- | transform-feats exp/tri4/final.mat ark:- ark:- |" ark:- ark:- | gmm-est-fmllr-gpost --fmllr-update-type=full --spk2utt=ark:data/test/split4/4/spk2utt exp/tri4/final.mdl "ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split4/4/utt2spk scp:data/test/split4/4/cmvn.scp scp:data/test/split4/4/feats.scp ark:- | splice-feats  ark:- ark:- | transform-feats exp/tri4/final.mat ark:- ark:- |" ark,s,cs:- ark:exp/tri4/decode/pre_trans.4 
+# Started at Sun Mar 22 09:33:25 IST 2020
+#
+lattice-to-post --acoustic-scale=0.083333 ark:- ark:- 
+gmm-est-fmllr-gpost --fmllr-update-type=full --spk2utt=ark:data/test/split4/4/spk2utt exp/tri4/final.mdl 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split4/4/utt2spk scp:data/test/split4/4/cmvn.scp scp:data/test/split4/4/feats.scp ark:- | splice-feats  ark:- ark:- | transform-feats exp/tri4/final.mat ark:- ark:- |' ark,s,cs:- ark:exp/tri4/decode/pre_trans.4 
+weight-silence-post 0.01 1:2:3:4:5 exp/tri4/final.alimdl ark:- ark:- 
+gmm-post-to-gpost exp/tri4/final.alimdl 'ark,s,cs:apply-cmvn  --utt2spk=ark:data/test/split4/4/utt2spk scp:data/test/split4/4/cmvn.scp scp:data/test/split4/4/feats.scp ark:- | splice-feats  ark:- ark:- | transform-feats exp/tri4/final.mat ark:- ark:- |' ark:- ark:- 
+transform-feats exp/tri4/final.mat ark:- ark:- 
+apply-cmvn --utt2spk=ark:data/test/split4/4/utt2spk scp:data/test/split4/4/cmvn.scp scp:data/test/split4/4/feats.scp ark:- 
+splice-feats ark:- ark:- 
+splice-feats ark:- ark:- 
+apply-cmvn --utt2spk=ark:data/test/split4/4/utt2spk scp:data/test/split4/4/cmvn.scp scp:data/test/split4/4/feats.scp ark:- 
+transform-feats exp/tri4/final.mat ark:- ark:- 
+LOG (lattice-to-post[5.5.620~1-dce1dc]:main():lattice-to-post.cc:106) Overall average log-like/frame is -2.76057 over 50402 frames.  Average acoustic like/frame is -2.70517
+LOG (lattice-to-post[5.5.620~1-dce1dc]:main():lattice-to-post.cc:110) Done 80 lattices.
+LOG (weight-silence-post[5.5.620~1-dce1dc]:main():weight-silence-post.cc:95) Done 80 posteriors.
+LOG (apply-cmvn[5.5.620~1-dce1dc]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 80 utterances, errors on 0
+LOG (apply-cmvn[5.5.620~1-dce1dc]:main():apply-cmvn.cc:162) Applied cepstral mean normalization to 80 utterances, errors on 0
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -54.6572 over 50402 frames.
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:161) Applied transform to 80 utterances; 0 had errors.
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:158) Overall average [pseudo-]logdet is -54.6572 over 50402 frames.
+LOG (transform-feats[5.5.620~1-dce1dc]:main():transform-feats.cc:161) Applied transform to 80 utterances; 0 had errors.
+LOG (gmm-post-to-gpost[5.5.620~1-dce1dc]:main():gmm-post-to-gpost.cc:124) Done 80 files, 0 with no posteriors, 0 with other errors.
+LOG (gmm-post-to-gpost[5.5.620~1-dce1dc]:main():gmm-post-to-gpost.cc:128) Overall avg like per frame (Gaussian only) = -44.0403 over 21456.4 frames.
+LOG (gmm-post-to-gpost[5.5.620~1-dce1dc]:main():gmm-post-to-gpost.cc:131) Done converting post to gpost
+LOG (gmm-est-fmllr-gpost[5.5.620~1-dce1dc]:ComputeFmllrMatrixDiagGmmFull():fmllr-diag-gmm.cc:262) fMLLR objf improvement is 9.55352 per frame over 21456.4 frames.
+LOG (gmm-est-fmllr-gpost[5.5.620~1-dce1dc]:main():gmm-est-fmllr-gpost.cc:141) For speaker PN00M03, auxf-impr from fMLLR is 9.55352, over 21456.4 frames.
+
+LOG (gmm-est-fmllr-gpost[5.5.620~1-dce1dc]:main():gmm-est-fmllr-gpost.cc:186) Done 80 files, 0 with no gposts, 0 with other errors.
+LOG (gmm-est-fmllr-gpost[5.5.620~1-dce1dc]:main():gmm-est-fmllr-gpost.cc:188) Overall fMLLR auxf impr per frame is 9.55352 over 21456.4 frames.
+# Accounting: time=5 threads=1
+# Ended (code 0) at Sun Mar 22 09:33:30 IST 2020, elapsed time 5 seconds
